@@ -19,11 +19,11 @@ services:
   #       - DEV=true
   #       - DEBUG=${DEBUG}
   #       - SECRET_KEY=${SECRET_KEY}
-  #       - MYSQL_DATABASE=${MYSQL_DATABASE}
-  #       - MYSQL_USER=${MYSQL_USER}
-  #       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  #       - MYSQL_DATABASE=${POSTGRES_DB}
+  #       - MYSQL_USER=${POSTGRES_USER}
+  #       - MYSQL_PASSWORD=${POSTGRES_PASSWORD}
   #       - DB_HOST=${DB_HOST}
-  #       - MYSQL_PORT=${MYSQL_PORT}
+  #       - MYSQL_PORT=${POSTGRES_PORT}
   #   ports:
   #     - "8000:8000"
   #   volumes:
@@ -31,8 +31,7 @@ services:
   #   command: >
   #     sh -c command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
   #   depends_on:
-  #     database:
-  #       condition: service_healthy
+  #     - database
   # frontend:
   #   container_name: oes-frontend
   #   stdin_open: true

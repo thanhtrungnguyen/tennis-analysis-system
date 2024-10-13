@@ -12,15 +12,12 @@ WORKDIR /code
 RUN apt-get update && apt-get install -y gcc libpq-dev
 
 # Install Python dependencies
-COPY requirements/base.txt /code/requirements.txt
+COPY requirements.txt /code/requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copy the project files to the container
 COPY . /code/
-
-# Create and collect static files (optional)
-RUN python manage.py collectstatic --noinput
 
 # Expose port 8000 to the outside world
 EXPOSE 8000
