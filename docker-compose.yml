@@ -1,0 +1,67 @@
+services:
+  # nginx:
+  #   container_name: oes-nginx-server
+  #   depends_on:
+  #     - api
+  #     - frontend
+  #   restart: always
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./nginx
+  #   ports:
+  #     - "80:80"
+  # backend:
+  #   container_name: oes-backend
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./backend
+  #     args:
+  #       - DEV=true
+  #       - DEBUG=${DEBUG}
+  #       - SECRET_KEY=${SECRET_KEY}
+  #       - MYSQL_DATABASE=${MYSQL_DATABASE}
+  #       - MYSQL_USER=${MYSQL_USER}
+  #       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  #       - DB_HOST=${DB_HOST}
+  #       - MYSQL_PORT=${MYSQL_PORT}
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./backend:/app
+  #   command: >
+  #     sh -c command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+  #   depends_on:
+  #     database:
+  #       condition: service_healthy
+  # frontend:
+  #   container_name: oes-frontend
+  #   stdin_open: true
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./frontend
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #     - ANGULAR_APP_BASE_URL= ""
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./frontend:/app
+  database:
+    container_name: postgres-database
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+      args:
+        - POSTGRES_DB="${POSTGRES_DB}"
+        - POSTGRES_USER="${POSTGRES_USER}"
+        - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+volumes:
+  data:
