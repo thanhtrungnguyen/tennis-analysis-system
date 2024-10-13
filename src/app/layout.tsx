@@ -1,17 +1,11 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Providers from "./providers";
+import Link from "next/link";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,15 +14,26 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={inter.className}>
+        <Providers>
+          <header className="py-6">
+            <nav className="container flex items-center justify-between">
+              <ul>
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+              </ul>
+              <ThemeSwitcher />
+            </nav>
+          </header>
+          <main>{children}</main>
+          <footer></footer>
+        </Providers>
       </body>
     </html>
   );
