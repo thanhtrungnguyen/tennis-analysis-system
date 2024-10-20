@@ -1,7 +1,8 @@
-import boto3
-from botocore.exceptions import NoCredentialsError, ClientError
 import logging
 import uuid
+
+import boto3
+from botocore.exceptions import NoCredentialsError, ClientError
 from django.conf import settings
 
 logger = logging.getLogger(__name__)

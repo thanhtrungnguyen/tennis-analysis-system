@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from apps.matches.models.video import Video
+
+from events.models import Event
+
 
 class VideoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Video
+        model = Event
         fields = '__all__'

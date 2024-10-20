@@ -1,7 +1,8 @@
-import logging
 import json
+import logging
 
 logger = logging.getLogger('django')
+
 
 class ResponseLogger:
     def process_response(self, request, response):

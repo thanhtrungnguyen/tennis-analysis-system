@@ -1,6 +1,6 @@
 services:
   # nginx:
-  #   container_name: oes-nginx-server
+  #   container_name: nginx-server
   #   depends_on:
   #     - api
   #     - frontend
@@ -11,7 +11,7 @@ services:
   #   ports:
   #     - "80:80"
   # backend:
-  #   container_name: oes-backend
+  #   container_name: backend
   #   build:
   #     dockerfile: Dockerfile
   #     context: ./backend
@@ -33,7 +33,7 @@ services:
   #   depends_on:
   #     - database
   # frontend:
-  #   container_name: oes-frontend
+  #   container_name: frontend
   #   stdin_open: true
   #   build:
   #     dockerfile: Dockerfile

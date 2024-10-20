@@ -3,6 +3,7 @@ import time
 
 logger = logging.getLogger('django')
 
+
 class PerformanceMonitor:
     def process_request(self, request):
         """Store the start time when the request starts processing."""

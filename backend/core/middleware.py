@@ -1,9 +1,11 @@
 import logging
-import time
+
 from django.utils.deprecation import MiddlewareMixin
+
 from core.handlers import request_logger, response_logger, performance
 
 logger = logging.getLogger('django')
+
 
 class ExtensibleMiddleware(MiddlewareMixin):
     def __init__(self, get_response=None):
