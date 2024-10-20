@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 from decouple import config
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'matches',
     'players',
-    'events',
+    'tournaments',
     'videos'
 ]
 
