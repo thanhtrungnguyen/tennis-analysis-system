@@ -1,0 +1,4 @@
+[submodule "tennis-analysis"]
+	path = tennis-analysis
+	url = https://github.com/Razscal/tennis-analysis-mse
+	branch = master
