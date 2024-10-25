@@ -1,1 +1,1 @@
-git submodule add -b master https://github.com/Razscal/tennis-analysis-mse .
+git submodule add -b master https://github.com/Razscal/tennis-analysis-mse tennis-analysis
