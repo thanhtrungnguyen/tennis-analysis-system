@@ -6,7 +6,7 @@ from django.db import models
 
 class UserManager(BaseUserManager):
     def create_user(
-            self, email: str, password: str | None = None, **other_fields
+            self, email: str, password: str | None = None, **other_fields: object
     ) -> User:
         user = User(email=email, **other_fields)
 
@@ -38,10 +38,7 @@ class User(AbstractUser):
 
     email: str = models.EmailField("Email Address", unique=True)
     username: str = models.CharField(max_length=60)
-    bio: str = models.TextField(blank=True)
     image: str | None = models.URLField(null=True, blank=True)
-
-    followers = models.ManyToManyField("self", blank=True, symmetrical=False)
 
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "email"
