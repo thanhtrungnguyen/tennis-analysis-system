@@ -2,9 +2,9 @@ import Image from "next/image";
 
 import { Button } from "@nextui-org/button";
 import { Card, CardBody } from "@nextui-org/card";
-import ProductSize from "./components/ProductSize";
+// import ProductSize from "./components/ProductSize";
 
-import shoe from "@/public/images/shoe.webp";
+// import shoe from "@/public/images/shoe.webp";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <Card className="py-4 lg:w-3/4 xl:w-1/2">
           <CardBody className="overflow-visible py-2">
             <div className="flex gap-6">
-              <Image alt="Shoe" className="flex-1 object-cover" src={shoe} />
+              {/*<Image alt="Shoe" className="flex-1 object-cover" src={shoe} />*/}
               <div className="flex-1">
                 <h2 className="text-lg font-bold uppercase">
                   Nike Adapt BB 2.0
@@ -28,7 +28,7 @@ export default function Home() {
                   <span className="text-success">20% off</span>
                 </div>
 
-                <ProductSize />
+                {/*<ProductSize />*/}
 
                 <div className="mt-6 flex gap-6">
                   <Button color="primary">Buy now</Button>
